@@ -14,28 +14,38 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
+  <div class="container p-10 h-full flex flex-col" id="container">
     <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-    <figure class="md:flex bg-gray-100 rounded-xl p-8 md:p-0">
-      <img class="w-32 h-32 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="https://tailwindcss.com/_next/static/media/sarah-dayan.a8ff3f1095a58085a82e3bb6aab12eb2.jpg" alt="" width="384" height="512">
-      <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-        <blockquote>
-          <p class="text-lg font-semibold text-black">
-            “Tailwind CSS is the only framework that I've seen scale
-            on large teams. It’s easy to customize, adapts to any design,
-            and the build size is tiny.”
-          </p>
-        </blockquote>
-        <figcaption class="font-medium">
-          <div class="text-blue-600">
-            Sarah Dayan
+    <br>
+    <p class="animate-bounce">Choose a flow below to get started <span role="img" aria-label="point_down_emoji">👇</span></p>
+    
+    <div class="flex h-full">
+      <div class="flex place-self-center">
+
+        <div class="flex flex-col bg-gray-100 rounded-xl p-4 shadow-lg w-1/2 mr-8" routerLink="/folder/Home/core-returns">
+          <ion-icon color="primary" class="text-black w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" slot="start" ios="scan-circle-outline" md="scan-circle-sharp"></ion-icon>
+          <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+            <blockquote>
+              <span class="text-lg font-semibold text-black">
+                Core Returns Flow
+              </span>
+            </blockquote>
           </div>
-          <div class="text-gray-500">
-            Staff Engineer, Algolia
+        </div>
+
+        <div class="flex flex-col bg-gray-100 rounded-xl p-4 shadow-lg w-1/2" routerLink="/folder/Home/customer-returns">
+          <ion-icon color="primary" class="text-black w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" slot="start" ios="scan-outline" md="scan-sharp"></ion-icon>
+          <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+            <blockquote>
+              <span class="text-lg font-semibold text-black">
+                Customer Returns flow
+              </span>
+            </blockquote>
           </div>
-        </figcaption>
+        </div>
+
       </div>
-    </figure>
+    </div>
+
   </div>
 </ion-content>

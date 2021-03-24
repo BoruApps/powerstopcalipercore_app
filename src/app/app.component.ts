@@ -8,7 +8,7 @@ export class AppComponent {
   public appPages = [
     { title: 'Home', url: '/folder/Home', icon: 'home' },
     { title: 'Core Returns Flow', url: '/folder/Home/core-returns', icon: 'scan-circle' },
-    { title: 'Customer Returns Flow', url: '/folder/Home/customer-returns', icon: 'scan' },
+    { title: 'Customer Returns Flow', url: '/folder/Home/customer-returns', icon: 'cart' },
   ];
   public utilityPages = [
     { title: 'Profile', url: '/folder/Profile', icon: 'person-circle' },

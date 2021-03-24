@@ -17,11 +17,11 @@
   <div class="container p-10 h-full flex flex-col" id="container">
     <strong class="capitalize">{{ folder }}</strong>
     <br>
-    <div class="flex">
+    <div *ngIf="folder == 'Home'" class="flex">
       <p class="flex w-max">Choose a flow below to get started &nbsp;&nbsp;</p>
       <span class="animate-bounce flex w-max" role="img" aria-label="point_down_emoji">👇</span>
     </div>
-    <div class="flex h-full">
+    <div *ngIf="folder == 'Home'" class="flex h-full">
       <div class="flex place-self-center">
 
         <div class="flex flex-col bg-gray-100 rounded-xl p-4 shadow-lg w-1/2 mr-8" routerLink="/folder/Home/core-returns">

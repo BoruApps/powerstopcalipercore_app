@@ -9,6 +9,8 @@ export class AppComponent {
     { title: 'Home', url: '/folder/Home', icon: 'home' },
     { title: 'Core Returns Flow', url: '/folder/Home/core-returns', icon: 'scan-circle' },
     { title: 'Customer Returns Flow', url: '/folder/Home/customer-returns', icon: 'scan' },
+  ];
+  public utilityPages = [
     { title: 'Profile', url: '/folder/Profile', icon: 'person-circle' },
     { title: 'Logout', url: '/logout', icon: 'log-out' },
   ];

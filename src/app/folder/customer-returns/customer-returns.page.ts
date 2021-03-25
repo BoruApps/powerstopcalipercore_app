@@ -9,8 +9,12 @@ export class CustomerReturnsPage implements OnInit {
 
   constructor() { }
 
+  showSwalTest(){
+    Swal.fire('Testing', 'Test', 'success'); //this works
+  }
+
   ngOnInit() {
-    //Swal.fire('Testing', 'Test', 'success');
+    
   }
 
 }

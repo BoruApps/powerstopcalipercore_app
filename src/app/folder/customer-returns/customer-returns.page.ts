@@ -8,9 +8,22 @@ import Swal from 'sweetalert2';
 export class CustomerReturnsPage implements OnInit {
 
   constructor() { }
+  
+  public barcode: any = '';
 
-  showSwalTest(){
-    Swal.fire('Testing', 'Test', 'success'); //this works
+  async showBarcodeModal(){
+    //Swal.fire('Testing', 'Test', 'success'); //this works
+    const {value: barcode } = await Swal.fire({
+      title: 'Scan or Enter Barcode',
+      input: 'text',  
+      inputPlaceholder: 'Enter Barcode #',
+      inputLabel: "Barcode #"
+    })
+    if (barcode) { 
+      this.barcode = barcode;
+      Swal.fire(`Barcode scanned: ${barcode}`);
+      //Instead redirect to VT
+    }
   }
 
   ngOnInit() {

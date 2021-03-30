@@ -19,6 +19,7 @@ export class CustomerReturnsPage implements OnInit {
       inputPlaceholder: 'Enter Barcode #',
       inputLabel: "Barcode #"
     })
+    this.addSwalEventListener()
     if (barcode) { 
       this.barcode = barcode;
       Swal.fire(`Barcode scanned: ${barcode}`);
@@ -26,7 +27,21 @@ export class CustomerReturnsPage implements OnInit {
     }
   }
 
+  addSwalEventListener(){ 
+    console.log('doing')
+    document.getElementById('swal2-input').addEventListener('input', function() {
+      console.log('updated')
+      let confirm: HTMLElement  = document.querySelector('.swal2-confirm') as HTMLElement;
+      confirm.click();
+    })
+  }
+
   ngOnInit() {
+    
+  }
+
+  ngAfterContentInit(){ 
+   //console.log(document.getElementById('showbarc'))
     
   }
 

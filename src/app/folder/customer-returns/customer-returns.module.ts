@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CustomerReturnsPageRoutingModule } from './customer-returns-routing.module';
 
 import { CustomerReturnsPage } from './customer-returns.page';
+import {ChecklistModalPage} from './checklist-modal/checklist-modal.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { CustomerReturnsPage } from './customer-returns.page';
     IonicModule,
     CustomerReturnsPageRoutingModule
   ],
-  declarations: [CustomerReturnsPage]
+  declarations: [CustomerReturnsPage,ChecklistModalPage],
+  entryComponents: [ChecklistModalPage]
 })
 export class CustomerReturnsPageModule {}

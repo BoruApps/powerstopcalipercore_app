@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -15,5 +16,9 @@ export class AppComponent {
     { title: 'Logout', url: '/logout', icon: 'log-out' },
   ];
   //public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  constructor(
+      public storage: Storage
+  ) {
+    this.storage.create();
+  }
 }

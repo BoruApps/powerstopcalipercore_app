@@ -1,6 +1,6 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu contentId="main-content" type="overlay" *ngIf="isLoggedIn">
       <ion-content id="container">
         <ion-list id="inbox-list">
           <ion-list-header>Hello!</ion-list-header>
@@ -13,18 +13,18 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-        
-        
+
+
         <ion-list id="labels-list">
           <ion-list-header>Utilities</ion-list-header>
           <ion-menu-toggle auto-hide="false" *ngFor="let u of utilityPages; let i = index">
-            <ion-item  routerDirection="root" lines="none" [routerLink]="[u.url]" routerLinkActive="selected" [routerLinkActiveOptions]="{exact:true}">
+            <ion-item  routerDirection="root" lines="none" [routerLink]="[u.url]" routerLinkActive="selected" [routerLinkActiveOptions]="{exact:true}" >
               <ion-icon slot="start" [ios]="u.icon + '-outline'" [md]="u.icon + '-sharp'"></ion-icon>
               <ion-label>{{ u.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-
+        <ion-button (click)="logout()" color="danger" routerDirection="root" size="default"><ion-icon name="log-out"></ion-icon> &nbsp; Logout</ion-button>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpHeaders, HttpClient, HttpResponse, HttpParams} from '@angular/common/http';
 import { AppConfig } from '../../app-config';
 import {Observable} from 'rxjs';
+import { Storage } from '@ionic/storage';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Injectable({
     providedIn: 'root'
@@ -15,6 +17,8 @@ export class ApiRequestService {
     constructor(
         private httpClient: HttpClient,
         public appConfig: AppConfig,
+        public storage: Storage,
+        private router: Router
     ) {
     }
 
@@ -39,5 +43,21 @@ export class ApiRequestService {
             }
         }
         return this.httpClient.get(url, {headers, observe: 'response', params: httpParam});
+    }
+
+    logout() {
+        console.log('logout clicked');
+        this.storage.set("userdata", null);
+        this.router.navigateByUrl('/login');
+    }
+    isLogged() {
+        var log_status = this.storage.get('userdata').then((userdata) => {
+            if (userdata && userdata.length !== 0) {
+                return userdata;
+            } else {
+                return false;
+            }
+        })
+        return log_status;
     }
 }

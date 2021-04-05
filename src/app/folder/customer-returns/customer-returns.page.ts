@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 import {ApiRequestService} from './api-request.service';
 import {ChecklistModalPage} from './checklist-modal/checklist-modal.page';
 import {NavController, ToastController, AlertController, ModalController} from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import {ActivatedRoute, Router} from "@angular/router";
 @Component({
   selector: 'app-customer-returns',
   templateUrl: './customer-returns.page.html',
@@ -12,10 +14,14 @@ export class CustomerReturnsPage implements OnInit {
 
   constructor(
       public apiRequestService: ApiRequestService,
-      public modalCtrl: ModalController
+      public modalCtrl: ModalController,
+      public storage: Storage,
+      private navCtrl: NavController,
+      private router: Router
   ) { }
   
   public barcode: any = '';
+  userdata: Object;
 
   async showBarcodeModal(){
     //Swal.fire('Testing', 'Test', 'success'); //this works
@@ -79,7 +85,15 @@ export class CustomerReturnsPage implements OnInit {
 }
 
   ngOnInit() {
-    
+    this.apiRequestService.isLogged().then(result => {
+      if (!(result == false)) {
+        console.log('loading storage data (within param route function)', result);
+        this.userdata = result;
+      } else {
+        console.log('nothing in storage, going back to login');
+        this.apiRequestService.logout();
+      }
+    });
   }
 
   ngAfterContentInit(){ 

@@ -37,6 +37,7 @@ export class CustomerReturnsPage implements OnInit {
       var params = {
         barcode: barcode
       }
+      this.apiRequestService.showLoading();
       this.apiRequestService.post(this.apiRequestService.ENDPOINT_CHECK_BARCODE, params).subscribe(response => {
         console.log(response);
         if (response.body.success){
@@ -52,9 +53,10 @@ export class CustomerReturnsPage implements OnInit {
         }else{
           Swal.fire(response.body.message);
         }
-
+        this.apiRequestService.hideLoading();
       },  error => {
         Swal.fire('Can not connect to Server.');
+        this.apiRequestService.hideLoading();
       });
     }
   }

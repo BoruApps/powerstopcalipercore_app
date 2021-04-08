@@ -38,7 +38,7 @@ export class LoginPage implements OnInit {
   login(form: any, origin: any) {
     //TODO: Wrap storage setting and data setting to API call return
     console.log('login function accessed');
-
+    this.apiRequestService.showLoading();
     if (origin == 'manual') {
       console.log('login clicked');
       var data = form.value;
@@ -64,9 +64,9 @@ export class LoginPage implements OnInit {
           console.log('login failed');
           Swal.fire('Login failed. Please try again');
         }
-
+        this.apiRequestService.hideLoading();
       }, error => {
-        //this.hideLoading();
+        this.apiRequestService.hideLoading();
         //console.log(error);
         //console.log(error.message);
         console.log('login failed');

@@ -4,6 +4,7 @@ import { AppConfig } from '../../app-config';
 import {Observable} from 'rxjs';
 import { Storage } from '@ionic/storage';
 import {ActivatedRoute, Router} from "@angular/router";
+import {LoadingController} from '@ionic/angular';
 
 @Injectable({
     providedIn: 'root'
@@ -13,12 +14,13 @@ export class ApiRequestService {
     public ENDPOINT_LOGIN = 'postLogin.php';
     public ENDPOINT_CHECK_BARCODE= 'getRMAInfo.php';
     public ENDPOINT_SAVE_CHECKLIST= 'saveCheckList.php';
-
+    loading: any;
     constructor(
         private httpClient: HttpClient,
         public appConfig: AppConfig,
         public storage: Storage,
-        private router: Router
+        private router: Router,
+        public loadingController: LoadingController,
     ) {
     }
 
@@ -59,5 +61,27 @@ export class ApiRequestService {
             }
         })
         return log_status;
+    }
+    async showLoading() {
+        this.loading = await this.loadingController.create({
+            message: 'Loading ...',
+            duration: 500
+        }).then((res) => {
+            console.log('Loading turning on');
+            res.present();
+
+            res.onDidDismiss().then((dis) =>{
+                console.warn('Loading dismissing', dis);
+            })
+        });
+    }
+
+    async hideLoading() {
+        setTimeout(() => {
+            if (this.loading != undefined) {
+                this.loading.dismiss();
+            }
+            console.log('Loading turning off');
+        }, 500);
     }
 }

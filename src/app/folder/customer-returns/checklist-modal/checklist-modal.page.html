@@ -1,21 +1,21 @@
 <ion-header>
-    <ion-toolbar text-center>
-        <ion-title style="margin-top:10px;width:80%;float:left">Inspection Checklist </ion-title>
+    <ion-toolbar>
+        <ion-title style="margin-top:10px;width:90%;float:left">Inspection Checklist </ion-title>
         <ion-icon name="close" (click)="closeModal()" size="large" style="float: right;"></ion-icon>
     </ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
+<ion-content>
     <form #form="ngForm" (ngSubmit)="SaveCheckList(recordid,seq_no)">
         <ion-grid>
             <ion-row>
-                <ion-col size="7"></ion-col>
-                <ion-col size="1">Yes</ion-col>
+                <ion-col size="6"></ion-col>
+                <ion-col size="2">Yes</ion-col>
                 <ion-col size="1">No</ion-col>
                 <ion-col size="3">Condition</ion-col>
             </ion-row>
             <ion-row>
-                <ion-col size="7">Was the correct part returns?</ion-col>
-                <ion-col size="1">
+                <ion-col size="6">Was the correct part returns?</ion-col>
+                <ion-col size="2">
                     <ion-checkbox  value="Yes"  (ionChange)="addUpdate($event)"  name="correct_part_yes" [checked]="isCorrectPartYes"></ion-checkbox>
                 </ion-col>
                 <ion-col size="1">
@@ -24,8 +24,8 @@
                 <ion-col size="3"> </ion-col>
             </ion-row>
             <ion-row>
-                <ion-col size="7">Does the actual condition of the part match the customer's description?</ion-col>
-                <ion-col size="1">
+                <ion-col size="6">Does the actual condition of the part match the customer's description?</ion-col>
+                <ion-col size="2">
                     <ion-checkbox  value="Yes" (ionChange)="addUpdate($event)"  name="actual_condition_yes" [checked]="isActualConditionYes" ng-checked="isActualConditionYes" ></ion-checkbox>
                 </ion-col>
                 <ion-col size="1">

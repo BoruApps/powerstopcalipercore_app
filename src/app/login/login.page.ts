@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import {ApiRequestService} from '../folder/customer-returns/api-request.service';
 import { Storage } from '@ionic/storage';
-import {ToastController, NavController} from '@ionic/angular';
+import {ToastController, NavController, MenuController} from '@ionic/angular';
+
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginPage implements OnInit {
   constructor(
       public apiRequestService: ApiRequestService,
       public storage: Storage,
-      private navCtrl: NavController
+      private navCtrl: NavController,
+      public menuCtrl: MenuController
   ) {
   }
 
@@ -22,7 +24,8 @@ export class LoginPage implements OnInit {
 
 
   ngOnInit() {
-    this.isLogged().then(result => {
+    this.menuCtrl.enable(false);
+    this.apiRequestService.isLogged().then(result => {
       if (!(result == false)) {
         console.log('loading storage data', result);
         this.login(result, "auto");
@@ -55,6 +58,7 @@ export class LoginPage implements OnInit {
           this.userdata = userdata;
           this.storage.set('userdata', this.userdata);
           this.navCtrl.navigateForward('/folder/Home');
+          this.menuCtrl.enable(true);
           // })
         } else {
           console.log('login failed');
@@ -79,17 +83,6 @@ export class LoginPage implements OnInit {
 
     return false;
   }
-
-  async isLogged() {
-  var log_status = this.storage.get('userdata').then((userdata) => {
-    if (userdata && userdata.length !== 0) {
-      return userdata;
-    } else {
-      return false;
-    }
-  })
-  return log_status;
-}
 
   movefocus(e, ref) {
     if (e.key == "Enter") {

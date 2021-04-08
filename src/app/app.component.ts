@@ -15,7 +15,6 @@ export class AppComponent {
   public utilityPages = [
     { title: 'Profile', url: '/folder/Profile', icon: 'person-circle' },
   ];
-  isLoggedIn:  boolean=false;
   constructor(
       public storage: Storage,
       public apiRequestService: ApiRequestService
@@ -30,7 +29,6 @@ export class AppComponent {
   ngOnInit() {
     this.apiRequestService.isLogged().then(result => {
       if (!(result == false)) {
-        this.isLoggedIn = true;
       } else {
         console.log('nothing in storage, going back to login');
         this.apiRequestService.logout();

@@ -4,7 +4,7 @@ import { AppConfig } from '../../app-config';
 import {Observable} from 'rxjs';
 import { Storage } from '@ionic/storage';
 import {ActivatedRoute, Router} from "@angular/router";
-import {LoadingController} from '@ionic/angular';
+import {LoadingController,MenuController} from '@ionic/angular';
 
 @Injectable({
     providedIn: 'root'
@@ -21,6 +21,7 @@ export class ApiRequestService {
         public storage: Storage,
         private router: Router,
         public loadingController: LoadingController,
+        public menuCtrl: MenuController
     ) {
     }
 
@@ -50,6 +51,7 @@ export class ApiRequestService {
     logout() {
         console.log('logout clicked');
         this.storage.set("userdata", null);
+        this.menuCtrl.enable(false);
         this.router.navigateByUrl('/login');
     }
     isLogged() {

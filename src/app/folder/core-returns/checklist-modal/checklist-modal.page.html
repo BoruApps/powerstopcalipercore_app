@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title style="margin-top:10px;width:90%;float:left">Inspection Checklist </ion-title>
+        <ion-icon name="close" (click)="closeModal()" size="large" style="float: right;"></ion-icon>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form #form="ngForm" (ngSubmit)="SaveCheckList(recordid)">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="9"></ion-col>
+                <ion-col size="2">Yes</ion-col>
+                <ion-col size="1">No</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="9">Was the bracket returned?</ion-col>
+                <ion-col size="2">
+                    <ion-checkbox  value="Yes"  (ionChange)="addUpdate($event)"  name="bracket_returned_yes" [checked]="isBracketReturnedYes"></ion-checkbox>
+                </ion-col>
+                <ion-col size="1">
+                    <ion-checkbox  value="No" (ionChange)="addUpdate($event)"  name="bracket_returned_no"  [checked]="isBracketReturnedNo"></ion-checkbox>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="9">Were the thread OK?</ion-col>
+                <ion-col size="2">
+                    <ion-checkbox  value="Yes" (ionChange)="addUpdate($event)"  name="was_thread_yes" [checked]="isWasThreadYes" ></ion-checkbox>
+                </ion-col>
+                <ion-col size="1">
+                    <ion-checkbox  value="No" (ionChange)="addUpdate($event)"  name="was_thread_no" [checked]="isWasThreadNo"></ion-checkbox>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="9">Were the casting damaged?</ion-col>
+                <ion-col size="2">
+                    <ion-checkbox  value="Yes" (ionChange)="addUpdate($event)"  name="casting_damaged_yes" [checked]="isCastingDamagedYes"></ion-checkbox>
+                </ion-col>
+                <ion-col size="1">
+                    <ion-checkbox  value="No" (ionChange)="addUpdate($event)"  name="casting_damaged_no" [checked]="isCastingDamagedNo"></ion-checkbox>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <div class="button-grouping ion-padding">
+            <ion-button size="large" expand="block" color="primary" type="submit">
+                <ion-text>Save</ion-text>
+            </ion-button>
+        </div>
+    </form>
+</ion-content>

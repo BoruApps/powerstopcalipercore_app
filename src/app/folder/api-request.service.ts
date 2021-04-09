@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpHeaders, HttpClient, HttpResponse, HttpParams} from '@angular/common/http';
-import { AppConfig } from '../../app-config';
 import {Observable} from 'rxjs';
 import { Storage } from '@ionic/storage';
 import {ActivatedRoute, Router} from "@angular/router";
 import {LoadingController,MenuController} from '@ionic/angular';
+import { AppConfig } from '../app-config';
 
 @Injectable({
     providedIn: 'root'
@@ -14,6 +14,9 @@ export class ApiRequestService {
     public ENDPOINT_LOGIN = 'postLogin.php';
     public ENDPOINT_CHECK_BARCODE= 'getRMAInfo.php';
     public ENDPOINT_SAVE_CHECKLIST= 'saveCheckList.php';
+
+    public ENDPOINT_CORE_BARCODE= 'getCoreRMA.php';
+
     loading: any;
     constructor(
         private httpClient: HttpClient,

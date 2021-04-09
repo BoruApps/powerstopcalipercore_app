@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import {ApiRequestService} from './folder/customer-returns/api-request.service';
+import {ApiRequestService} from './folder/api-request.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',

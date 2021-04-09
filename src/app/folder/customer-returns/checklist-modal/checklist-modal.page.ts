@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import {ApiRequestService} from '../api-request.service';
+import {ApiRequestService} from '../../api-request.service';
 import {NavController, ToastController, AlertController, ModalController} from '@ionic/angular';
 
 @Component({

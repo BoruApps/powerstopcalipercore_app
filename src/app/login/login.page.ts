@@ -56,7 +56,7 @@ export class LoginPage implements OnInit {
           //this.storage.ready().then(() => {
           this.userdata = userdata;
           this.storage.set('userdata', this.userdata);
-          this.navCtrl.navigateForward('/folder/Home');
+          this.navCtrl.navigateForward('/folder/Home/core-returns');
           this.menuCtrl.enable(true);
           // })
         } else {

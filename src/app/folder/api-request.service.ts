@@ -15,8 +15,6 @@ export class ApiRequestService {
     public ENDPOINT_CHECK_BARCODE= 'getRMAInfo.php';
     public ENDPOINT_SAVE_CHECKLIST= 'saveCheckList.php';
 
-    public ENDPOINT_CORE_BARCODE= 'getCoreRMA.php';
-
     loading: any;
     constructor(
         private httpClient: HttpClient,

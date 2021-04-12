@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CoreReturnsPageRoutingModule } from './core-returns-routing.module';
 
 import { CoreReturnsPage } from './core-returns.page';
+import {ChecklistModalPage} from './checklist-modal/checklist-modal.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { CoreReturnsPage } from './core-returns.page';
     IonicModule,
     CoreReturnsPageRoutingModule
   ],
-  declarations: [CoreReturnsPage]
+  declarations: [CoreReturnsPage,ChecklistModalPage],
+  entryComponents: [ChecklistModalPage]
 })
 export class CoreReturnsPageModule {}

@@ -47,7 +47,7 @@ export class CoreReturnsPage implements OnInit {
         barcode: barcode
       };
       this.apiRequestService.showLoading();
-      this.apiRequestService.post(this.apiRequestService.ENDPOINT_CORE_BARCODE, params).subscribe(response => {
+      this.apiRequestService.post(this.apiRequestService.ENDPOINT_CHECK_BARCODE, params).subscribe(response => {
         console.log(response);
         if (response.body.success){
           var data = response.body.data;
@@ -55,7 +55,8 @@ export class CoreReturnsPage implements OnInit {
             var record = data.record;
             var so_detail = data.so_detail;
             var items = data.items;
-            this.openModal(record,so_detail, items);
+            var checklist = data.checklist;
+            this.openModal(record,so_detail, items,checklist);
         }else{
           Swal.fire(response.body.message);
         }
@@ -73,7 +74,7 @@ export class CoreReturnsPage implements OnInit {
       })
   }
 
-  async openModal(record,so_detail, items){
+  async openModal(record,so_detail, items,checklist){
     const modal = await this.modalCtrl.create({
       component: ChecklistModalPage,
       cssClass: 'checklist-modal',
@@ -81,12 +82,13 @@ export class CoreReturnsPage implements OnInit {
         "recordid": record,
         "so_detail": so_detail,
         "items": items,
+        "checklist": checklist,
       }
     });
 
     modal.onDidDismiss().then((dataReturned) => {
     });
-
+console.log('open modal');
     return await modal.present();
   }
 

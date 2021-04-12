@@ -11,10 +11,6 @@ const routes: Routes = [
   {
     path: 'core-returns',
     loadChildren: () => import('./core-returns/core-returns.module').then( m => m.CoreReturnsPageModule)
-  },
-  {
-    path: 'customer-returns',
-    loadChildren: () => import('./customer-returns/customer-returns.module').then( m => m.CustomerReturnsPageModule)
   }
 
 ];

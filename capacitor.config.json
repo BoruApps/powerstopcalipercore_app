@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "MyApp",
+  "appId": "com.boruapps.pscalipercores",
+  "appName": "PowerStop Scanner",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

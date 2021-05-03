@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
 export class AppConfig {
-    public apiurl = 'https://devl06.borugroup.com/powerstopcalipercore/barcodeappapi/';
-    public vturl = 'https://devl06.borugroup.com/powerstopcalipercore/';
+    public apiurl = 'https://powerstopcalipercore.borugroup.com/barcodeappapi/';
+    public vturl = 'https://powerstopcalipercore.borugroup.com/';
 }
